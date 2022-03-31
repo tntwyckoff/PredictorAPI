@@ -1,0 +1,11 @@
++ Init a repo on github
++ pull it locally
++ init a node.js project
++ add typescript w/ts-node
++ get hello world working locally
++ dockerize project, get it running in docker
++ create project in cloud
++ copy and modify yaml from prev repo
++ create cloud build trigger
++ test hellow world
++ start making meaningful changes
