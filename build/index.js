@@ -8,7 +8,7 @@ const app = (0, express_1.default)();
 const PORT = process.env.PORT || 3000;
 app.use(express_1.default.json());
 app.get('/', (req, res) => {
-    res.send('Server side hello!');
+    res.send({ "msg": "A fine server-side hello to you, sir!" });
 });
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
