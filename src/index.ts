@@ -6,7 +6,7 @@ const app:Application = express();
 // const PORT = process.env.PORT || 8080;
 const PORT = 8080;
 // const SourceString:string = "One;     Two, Three: () Four One !!! Three ?<> One Four";
-const SourceString:string = "One Two Three Four One Three One Four One Two Three One Two Three";
+const SourceString:string = "One Two Two Four Four One Three One Four One Two Three One Two Three Two Three";
 const pre = new Predictor(SourceString);
 
 app.use(express.json());

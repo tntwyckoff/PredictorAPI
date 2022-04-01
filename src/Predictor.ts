@@ -12,7 +12,7 @@ export class Predictor {
     predictNext(keyword: string): any {
         debug(`Analyzing ${keyword}...`);
 
-        const occurances = this.getOccurances(keyword);
+        const occurances = this.getOccurances(keyword).sort((a, b) => b.count - a.count);
         const denom = occurances.map(m => m.count).reduce((a, b) => a + b);
 
         debug(`${denom} total occurances`);
