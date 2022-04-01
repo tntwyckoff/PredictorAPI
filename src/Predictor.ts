@@ -13,11 +13,14 @@ export class Predictor {
         debug(`Analyzing ${keyword}...`);
 
         const occurances = this.getOccurances(keyword);
+        const denom = occurances.map(m => m.count).reduce((a, b) => a + b);
+
+        debug(`${denom} total occurances`);
 
         const result:any = {};
 
         occurances.forEach(o => {
-            result[o.keyword] = o.count;            
+            result[o.keyword] = o.count / denom;            
         });
 
         return result;
