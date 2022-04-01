@@ -1,12 +1,13 @@
+// todo: handle punctuation
+// todo: keep a source string in memory somewhereand allow a POST to change it
+
 import express, { Request, Response, Application }  from 'express';
 import { LoggingMiddleware } from './middleware/loggingMiddleware';
 import { Predictor } from './Predictor';
 
 const app:Application = express();
-// const PORT = process.env.PORT || 8080;
 const PORT = 8080;
-// const SourceString:string = "One;     Two, Three: () Four One !!! Three ?<> One Four";
-const SourceString:string = "One Two Two Four Four One Three One Four One Two Three One Two Three Two Three";
+const SourceString:string = "One Two Two Four Four One Three One Four One Two Three One Two four Two four";
 const pre = new Predictor(SourceString);
 
 app.use(express.json());
