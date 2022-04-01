@@ -19,11 +19,11 @@ app.get('/:keyword', (req:Request, res:Response) => {
     res.send(appState.predictionModel?.predictNext(req.params["keyword"]));
   })
 
-  app.get('/', (req:Request, res:Response) => {
-    res.send({
-        "sourceString": appState.learningString
-      });
-  })
+//   app.get('/', (req:Request, res:Response) => {
+//     res.send({
+//         "sourceString": appState.learningString
+//       });
+//   })
     
 app.post('/', (req:Request, res:Response) => {
     const localLearningString = req.body["sourceString"];
