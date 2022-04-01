@@ -52,7 +52,7 @@ export class Predictor {
     } 
     
     getOccurances(w: string): OccuranceModel[] {
-        let target = this.table.get(w);
+        let target = this.table.get(w.toLowerCase());
 
         if(target) {
             debug(`'${w}' found in Map'`);
@@ -62,7 +62,7 @@ export class Predictor {
         debug(`Creating Map entry for '${w}'`);
 
         target = [];
-        this.table.set(w, target);
+        this.table.set(w.toLowerCase(), target);
 
         return target;
     }
