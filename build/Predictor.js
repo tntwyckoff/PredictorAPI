@@ -12,7 +12,7 @@ class Predictor {
     }
     predictNext(keyword) {
         (0, console_1.debug)(`Analyzing ${keyword}...`);
-        const occurances = this.getOccurances(keyword);
+        const occurances = this.getOccurances(keyword).sort((a, b) => b.count - a.count);
         const denom = occurances.map(m => m.count).reduce((a, b) => a + b);
         (0, console_1.debug)(`${denom} total occurances`);
         const result = {};
@@ -37,7 +37,7 @@ class Predictor {
             else {
                 nextOcc = new OccuranceModel_1.OccuranceModel();
                 nextOcc.count = 1;
-                nextOcc.keyword = nextWord;
+                nextOcc.keyword = nextWord.toLowerCase();
                 occurances.push(nextOcc);
             }
             (0, console_1.debug)(`Keyword ${word} has ${nextOcc.count} occurance(s)`);

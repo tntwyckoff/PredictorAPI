@@ -45,7 +45,7 @@ export class Predictor {
             } else {
                 nextOcc = new OccuranceModel();
                 nextOcc.count = 1;
-                nextOcc.keyword = nextWord;
+                nextOcc.keyword = nextWord.toLowerCase();
                 occurances.push(nextOcc);
             }
 
