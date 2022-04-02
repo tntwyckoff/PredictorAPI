@@ -1,7 +1,7 @@
-import express, { Request, Response } from 'express';
+import { Request, Response } from 'express';
 
 export class LoggingMiddleware {
-    static handler = function (req: Request, res: Response, next: any) {
+    static handler (req: Request, res: Response, next: any) {
         console.log(`${new Date()} REQ: ${req.url}`);
         next();
     }
