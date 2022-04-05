@@ -20,7 +20,17 @@ steps:
 
 # Deploy container image to Cloud Run
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['run', 'deploy', 'predictorapi', '--image', 'gcr.io/$PROJECT_ID/predictorapi', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated', '--port', '80']
+  env:
+  - NODE_ENV=production
+  args: [
+    'run', 'deploy', 
+    'predictorapi', 
+    '--image', 'gcr.io/$PROJECT_ID/predictorapi', 
+    '--region', 'us-central1', 
+    '--platform', 'managed', 
+    '--allow-unauthenticated', 
+    '--port', '80'
+    ]
 
 images:
 - 'gcr.io/$PROJECT_ID/predictorapi'

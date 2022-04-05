@@ -1,7 +1,7 @@
 # Use the official lightweight Node.js 12 image.
 # https://hub.docker.com/_/node
-# FROM node:17-slim
-FROM node:17-slim as builder
+FROM node:17-slim
+# FROM node:17-slim as builder
 
 # Create and change to the app directory.
 WORKDIR /app
@@ -21,14 +21,12 @@ RUN npm install
 # Copy local code to the container image.
 COPY . ./
 
-RUN npm run build
-
 # Run the web service on container startup.
 # CMD ["ts-node", "./src/index.ts"]
-# CMD ["npm", "start"]
+CMD ["npm", "start"]
 
 # production environment
-FROM nginx:stable-alpine
-COPY --from=builder /app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]    
+# FROM nginx:stable-alpine
+# COPY --from=builder /app/build /usr/share/nginx/html
+# EXPOSE 80
+# CMD ["nginx", "-g", "daemon off;"]    
