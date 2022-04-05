@@ -9,7 +9,7 @@ import { SuppressExpressHeaderMiddleware } from './middleware/suppressExpressHea
 const cors = require('cors');
 const app: Application = express();
 const PORT = process.env.PORT || 8080;
-const SourceString: string = "One Two Two Four Four One Three One Four One Two Three One Two four Two four";
+const SourceString: string = "In all areometer work it is necessary to ascertain the temperature of the water sample under examination with great exactness, as the volume of the areometer as well as the specific gravity of the water varies with temperature.";
 const appState: ApplicationStateModel = new ApplicationStateModel();
 appState.learningString = SourceString;
 
@@ -18,12 +18,6 @@ app.use(express.json());
 app.use(LoggingMiddleware.handler);
 app.use(ContentTypeMiddleware.handler);
 app.use(SuppressExpressHeaderMiddleware.handler);
-// app.use(cors({
-//     origin: 'http://localhost:4200'
-// }));
-// app.use(cors({
-//     origin: 'http://localhost:8080'
-// }));
 app.use(cors());
 
 app.get('/:keyword', (req: Request, res: Response) => {

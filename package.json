@@ -5,6 +5,7 @@
   "scripts": {
     "tsc": "tsc",
     "start": "npm run tsc && node build/index.js",
+    "build": "npm run tsc",
     "local": "ts-node-dev --respawn ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
