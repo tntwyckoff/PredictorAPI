@@ -16,11 +16,12 @@ COPY package*.json ./
 # If you add a package-lock.json speed your build by switching to 'npm ci'.
 # RUN npm ci --only=production
 # RUN npm install --production
-# RUN npm install
-RUN npm run build
+RUN npm install
 
 # Copy local code to the container image.
 COPY . ./
+
+RUN npm run build
 
 # Run the web service on container startup.
 # CMD ["ts-node", "./src/index.ts"]
